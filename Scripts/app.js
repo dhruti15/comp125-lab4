@@ -61,12 +61,20 @@
         /**
          * @ creating object UserObject
          */
-        var UserObject = {
-            UserName : document.getElementById("username").value,
-            Password : document.getElementById("password").value
-        }
-        console.log(UserObject.UserName);
-        console.log(UserObject.Password);
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+		function Newuser(username, password){
+			this.username = username;
+			this.password = password;
+		}
+		Newuser.prototype.info = function(){
+			console.log("username = " + this.username);
+			console.log("password = " + this.password);
+		}
+
+ 		var user_a = new Newuser(username, password);
+		user_a.info();
         document.getElementById("form").reset();
     });
 })();
